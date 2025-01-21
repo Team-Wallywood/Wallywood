@@ -1,9 +1,9 @@
-import { FooterStyled } from "../../Styled/Footer.styled";
+import { FooterStyled} from "./Footer.Styled";
 
-export const Footer = () => {
-    return (
+export const Footer = () =>{
+    return(
         <FooterStyled>
-            <p>&copy; 2024</p>
+            <h1>footer</h1>
         </FooterStyled>
-    );
-};
+    )
+}

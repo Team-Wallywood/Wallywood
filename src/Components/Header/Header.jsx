@@ -1,9 +1,11 @@
-import { HeaderStyled } from "../../Styled/Header.styled";
+import { HeaderStyled } from "./Header.Styled";
 
-export const Header = () => {
-    return (
+
+
+export const Header = () =>{
+    return(
         <HeaderStyled>
-            <h1>React02</h1>
+            <h1>header</h1>
         </HeaderStyled>
-    );
-};
+    )
+}
