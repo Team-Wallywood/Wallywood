@@ -1,9 +1,10 @@
 export const theme = {
   color: {
-    primary: "#2BBBDE",
+    orange: "#D97852",
+    btnSkin: "#D1B3A7",
+    borderRed: "#5C1F06",
     black: "#000000",
     white: "#FFFFFF",
-    background: "#EEEEEE",
   },
   fonts: ["Oswald", "Open Sans"],
   grid: {
