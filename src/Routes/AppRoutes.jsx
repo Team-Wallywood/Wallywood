@@ -14,9 +14,6 @@ export const AppRoutes = () => {
       <Route path="KontaktOsPage" element={ <KontaktOsPage />} />
       <Route path="OmOsPage" element={ <OmOsPage />} />
       <Route path="LoginPage" element={ <LoginPage />} />
-      <Route path="PLAKATER" element={<PlakaterPage />} />
-      <Route path="KONTAKT OS" element={<KontaktOsPage />} />
-      <Route path="LOGIN" element={<LoginPage />} />
     </Routes>
   );
 }
