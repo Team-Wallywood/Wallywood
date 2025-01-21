@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NavbarStyled = styled.nav`
   grid-area: navbar;
   display: flex;
-  ul{
+  ul {
     display: flex;
     justify-content: space-between;
     list-style: none;
@@ -12,7 +12,7 @@ export const NavbarStyled = styled.nav`
 
     li {
       margin: 0 10px;
-      a{
+      a {
         text-decoration: none;
         color: #000;
       }
