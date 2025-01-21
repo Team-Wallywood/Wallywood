@@ -11,19 +11,19 @@ export const Navbar = () =>{
         <NavbarStyled>
             <ul>
                 <li>
-                <NavLink to={HomePage}>Forside</NavLink>
+                <NavLink to={"/"}>Forside</NavLink>
                 </li>
                 <li>
-                <NavLink to={PlakaterPage}>Plakater</NavLink>
+                <NavLink to={"PlakaterPage"}>Plakater</NavLink>
                 </li>
                 <li>
-                <NavLink to={OmOsPage}>Om os</NavLink>
+                <NavLink to={"OmOsPage"}>Om os</NavLink>
                 </li>
                 <li>
-                <NavLink to={KontaktOsPage}>Kontakt os</NavLink>
+                <NavLink to={"KontaktOsPage"}>Kontakt os</NavLink>
                 </li>
                 <li>
-                <NavLink to={LoginPage}>Login</NavLink>
+                <NavLink to={"LoginPage"}>Login</NavLink>
                 </li>
             </ul>
 
