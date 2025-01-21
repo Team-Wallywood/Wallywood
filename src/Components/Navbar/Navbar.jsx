@@ -6,19 +6,19 @@ export const Navbar = () =>{
         <NavbarStyled>
             <ul>
                 <li>
-                <NavLink to={"/"}>navlink</NavLink>
+                <NavLink to={HomePage}>Forside</NavLink>
                 </li>
                 <li>
-                <NavLink to={"/"}>navlink</NavLink>
+                <NavLink to={PlakaterPage}>Plakater</NavLink>
                 </li>
                 <li>
-                <NavLink to={"/"}>navlink</NavLink>
+                <NavLink to={OmOsPage}>Om os</NavLink>
                 </li>
                 <li>
-                <NavLink to={"/"}>navlink</NavLink>
+                <NavLink to={KontaktOsPage}>Kontakt os</NavLink>
                 </li>
                 <li>
-                <NavLink to={"/"}>navlink</NavLink>
+                <NavLink to={LoginPage}>Login</NavLink>
                 </li>
             </ul>
 
