@@ -6,10 +6,6 @@ export const ContainerStyled = styled.section`
   background-color: ${(props) => props.$bgcolor || "transparent"};
   margin: auto auto;
 
-  &.greybox {
-    background-color: #${(props) => props.theme.colors.grey};
-  }
-
   &.center {
     width: 1200px;
   }

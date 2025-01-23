@@ -1,12 +1,12 @@
+import { MainCards } from "../../Components/mainCards/mainCards";
 
-
-
-
+import { Container } from "../../Components/Container/Container";
 
 export const HomePage = () => {
-    return (
-        <div>
-        <h1>HomePage</h1>
-        </div>
-    )
-}
+  return (
+    <Container>
+      <h1>HomePage</h1>
+      <MainCards />
+    </Container>
+  );
+};
