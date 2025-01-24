@@ -6,4 +6,7 @@ export const HeaderStyled = styled.header`
   color: #D97852;
   font-size: 2rem;
   margin-left: 2rem;
+  img{
+    width: 100vw;
+  }
 `;
