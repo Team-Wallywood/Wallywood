@@ -11,7 +11,7 @@ export const NavbarStyled = styled.nav`
     list-style: none;
     padding: 0;
     margin: 0;
-    top: 50%;
+    top: 11.5%;
 
     li {
       margin: 0 10px;
