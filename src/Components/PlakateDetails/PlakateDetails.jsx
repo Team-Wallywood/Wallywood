@@ -51,9 +51,6 @@ export const PlakateDetails = () => {
     return (
         <PlakateDetailsStyled>
             <figure>
-                <PlakateImage>
-                <img src={image} alt={name}/>
-                </PlakateImage>
                 <figcaption>
                     <h3>{name}</h3>
                     <PlakateDescription dangerouslySetInnerHTML={{ __html: description }} />
@@ -71,6 +68,9 @@ export const PlakateDetails = () => {
                       </button>
                     </ButtonDiv>
                 </figcaption>
+                <PlakateImage>
+                <img src={image} alt={name}/>
+                </PlakateImage>
             </figure>
             
         </PlakateDetailsStyled>
