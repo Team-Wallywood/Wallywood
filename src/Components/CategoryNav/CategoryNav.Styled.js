@@ -17,5 +17,8 @@ export const CategoryNavStyled = styled.aside`
       text-decoration: none;
       color: ${(props) => props.theme.color.black};
     }
+    .active {
+      font-weight: bold;
+    }
   }
 `;

@@ -72,6 +72,10 @@ export const MainCardsStyled = styled.div`
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
+    a {
+      text-decoration: none;
+      color: #000;
+    }
   }
 `;
 

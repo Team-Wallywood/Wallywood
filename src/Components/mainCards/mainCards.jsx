@@ -7,6 +7,7 @@ import {
 
 import { useEffect, useState } from "react";
 import supabase from "../../Utils/SupabaseClient";
+import { Link } from "react-router-dom";
 
 import heart from "../../Assets/Button/heart-regular.svg";
 
@@ -14,18 +15,21 @@ import { Title } from "../Title/Title";
 
 export const MainCards = () => {
   const [poster, setPoster] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const getPoster = async () => {
     if (supabase) {
+      setLoading(true);
       const { data, error } = await supabase
         .from("poster")
-        .select("*, genreposterrel(genre_id(title))")
+        .select("*, genreposterrel(genre_id(*))")
         .limit(4);
       if (error) {
         console.error("Error fetching poster", error);
       } else {
         setPoster(data);
       }
+      setLoading(false);
     }
   };
 
@@ -34,6 +38,18 @@ export const MainCards = () => {
   }, [setPoster, supabase]);
 
   console.log(poster);
+
+
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (!poster) {
+    return <p>Poster not found</p>;
+  }
+  
+  
 
   return (
     <MainCardsStyled>
@@ -54,14 +70,17 @@ export const MainCards = () => {
                     dangerouslySetInnerHTML={{ __html: poster.description }}
                   />
                   <p>
-                    Genre:{" "}
-                    {poster.genreposterrel &&
+                    Genre: {poster.genreposterrel &&
                       poster.genreposterrel.map((genre, index) => {
                         return <span key={index}>{genre.genre_id.title}</span>;
                       })}
                   </p>
                   <ButtonContainer>
-                    <button>Læs mere</button>
+                    <button>
+                    <Link to={`/PlakaterPage/${poster.genreposterrel[0].genre_id.id}/${poster.id}`}>
+                      Læs mere
+                    </Link>
+                      </button>
                     <button>
                       <img src={heart} alt="heart-svg" />
                     </button>
