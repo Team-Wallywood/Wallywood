@@ -30,7 +30,7 @@ export const PosterItem = styled.li`
   width: 100%;
   margin: 1rem 0;
   figure {
-    > img {
+    img {
       width: 100%;
       height: 500px;
       display: block;
@@ -78,7 +78,10 @@ export const BtnContainer = styled.div`
     border-radius: 5px;
     padding: 0.5rem 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    a {
+      text-decoration: none;
+      color: #000;
+    }
     img {
       width: 20px;
     }

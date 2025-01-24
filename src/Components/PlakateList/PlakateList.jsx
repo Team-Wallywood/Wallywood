@@ -11,6 +11,8 @@ import supabase from "../../Utils/SupabaseClient";
 
 import heart from "../../Assets/Button/heart-regular.svg";
 
+import { Link } from "react-router-dom";
+
 export const PlakateList = () => {
   const { category_id } = useParams();
 
@@ -55,17 +57,23 @@ export const PlakateList = () => {
             posters.map((posterItem) => (
               <PosterItem key={posterItem.poster.id}>
                 <figure>
+                <Link to={`/PlakaterPage/${category_id}/${posterItem.poster.id}`}>
                   <img
                     src={posterItem.poster.image}
                     alt={posterItem.poster.name}
                   />
+                  </Link>
                   <figcaption>
                     <PosterDetails>
                       <p> {posterItem.poster.name}</p>
                       <p>kr.{posterItem.poster.price},00</p>
                     </PosterDetails>
                     <BtnContainer>
-                      <button>Læs mere</button>
+                      <button>
+                      <Link to={`/PlakaterPage/${category_id}/${posterItem.poster.id}`}>
+                        Læg i kurv
+                        </Link>
+                        </button>
                       <button>
                         <img src={heart} alt="heart-svg" />
                       </button>

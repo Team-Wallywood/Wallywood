@@ -7,6 +7,7 @@ import { OmOsPage } from "../Pages/OmOsPage/OmOsPage";
 import { LoginPage } from "../Pages/LoginPage/LoginPage";
 
 import { PlakateList } from "../Components/PlakateList/PlakateList";
+import { PlakateDetails } from "../Components/PlakateDetails/PlakateDetails";
 
 export const AppRoutes = () => {
   return (
@@ -15,6 +16,7 @@ export const AppRoutes = () => {
 
       <Route path="PlakaterPage" element={<PlakaterPage />}>
         <Route path=":category_id" element={<PlakateList />} />
+        <Route path=":category_id/:plakate_id" element={<PlakateDetails/>}/>
       </Route>
 
       <Route path="KontaktOsPage" element={<KontaktOsPage />} />
