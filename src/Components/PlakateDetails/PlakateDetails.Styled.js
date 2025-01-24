@@ -2,22 +2,33 @@ import styled from "styled-components";
 
 export const PlakateDetailsStyled = styled.div`
   figure {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 2rem;
+    padding: 0 2rem;
+
+    @media screen and (min-width: ${(props) =>
+        props.theme.grid.breakpoints.m}) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (min-width: ${(props) =>
+        props.theme.grid.breakpoints.l}) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
   width: 100%;
   margin: 1rem 0;
   img {
     width: 100%;
-    height: 500px;
+    height: 600px;
     display: block;
   }
   figcaption {
     display: flex;
+    justify-content: center;
     flex-direction: column;
-    width: 500px;
+    text-align: center;
   }
   h3 {
     font-size: 2rem;
@@ -40,6 +51,7 @@ export const PlakateImage = styled.div``;
 
 export const ButtonDiv = styled.div`
   display: flex;
+  justify-content: center;
   gap: 1rem;
 
   button {
