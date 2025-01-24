@@ -3,6 +3,11 @@ import styled from "styled-components";
 export const LoginStyled = styled.div`
 display: flex;
 flex-direction: column;
+gap: 10px;
+label{
+    display: flex;
+    flex-direction: column;
+}
 input{
     width: 10rem;
 }
