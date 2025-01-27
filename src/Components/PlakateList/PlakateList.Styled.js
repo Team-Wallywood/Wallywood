@@ -24,6 +24,9 @@ export const PlakateGrid = styled.div`
   @media screen and (min-width: ${(props) => props.theme.grid.breakpoints.l}) {
     grid-template-columns: 0.15fr 1fr;
   }
+  > div:first-of-type {
+    border-right: 1px solid ${(props) => props.theme.color.borderRed};
+  }
 `;
 
 export const PosterItem = styled.li`
@@ -94,6 +97,10 @@ export const BtnContainer = styled.div`
     align-items: center;
     justify-content: center;
     padding: 0;
+    img {
+      width: 20px;
+      height: 20px;
+    }
   }
 `;
 

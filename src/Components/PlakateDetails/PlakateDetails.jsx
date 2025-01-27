@@ -1,78 +1,99 @@
-import { PlakateDetailsStyled,ButtonDiv,PlakateImage,PlakatePrice,PlakateDescription } from "./PlakateDetails.Styled";
+import {
+  PlakateDetailsStyled,
+  ButtonDiv,
+  PlakateImage,
+  PlakatePrice,
+  PlakateDescription,
+} from "./PlakateDetails.Styled";
 
 import { useParams } from "react-router-dom";
 import supabase from "../../Utils/SupabaseClient";
 import { useEffect, useState } from "react";
 
-import heart from "../../Assets/Button/heart-regular.svg";
+import heartregular from "../../Assets/Button/heart-regular.svg";
+import heartsolid from "../../Assets/Button/heart-solid.svg";
+
+import { FavoritesContext } from "../../Providers/FavoritesContext";
+import { useContext } from "react";
 
 export const PlakateDetails = () => {
+  const { plakate_id } = useParams();
+  console.log(plakate_id);
 
-    const { plakate_id } = useParams();
-    console.log(plakate_id);
+  const [poster, setPoster] = useState();
+  const [loading, setLoading] = useState(true);
 
-    const [poster, setPoster] = useState();
-    const [loading, setLoading] = useState(true);
+  const fetchPoster = async () => {
+    if (supabase) {
+      setLoading(true);
+      const { data, error } = await supabase
+        .from("poster")
+        .select("*,genreposterrel(genre_id(*))")
+        .eq("id", plakate_id);
+      if (error) {
+        console.error("Error fetching posters", error);
+      } else {
+        setPoster(data[0]);
+      }
+      setLoading(false);
+    }
+  };
 
-    const fetchPoster = async () => {
-        if (supabase) {
-          setLoading(true);
-          const { data, error } = await supabase
-            .from("poster")
-            .select("*,genreposterrel(genre_id(*))")
-            .eq("id", plakate_id);
-          if (error) {
-            console.error("Error fetching posters", error);
-          } else {
-            setPoster(data[0]);
-          }
-          setLoading(false);
-        }
-      };
+  useEffect(() => {
+    fetchPoster();
+  }, [plakate_id]);
 
-      useEffect(()=>{
-            fetchPoster();            
-      },[plakate_id]);
+  console.log("poster", poster);
 
-      console.log(poster);
+  if (loading) {
+    return <p>Loading...</p>;
+  }
 
-        if(loading){
-            return <p>Loading...</p>
-        }
-      
-        if(!poster){
-            return <p>Poster not found</p>
-        }
+  if (!poster) {
+    return <p>Poster not found</p>;
+  }
 
-      const {name, description, price,image, width, height,id, genreposterrel} = poster;
+  const { favorites, handleToggleFavorite } = useContext(FavoritesContext);
 
-      
+  const isFavorite = (item) => {
+    return favorites.some((fav) => fav.id === item.id);
+  };
 
-    return (
-        <PlakateDetailsStyled>
-            <figure>
-                <figcaption>
-                    <h3>{name}</h3>
-                    <PlakateDescription dangerouslySetInnerHTML={{ __html: description }} />
-                    <p>Størrelse: {width} x {height} cm</p>
-                    <p>Varenummer (sku): {id}</p>
-                    <PlakatePrice>
-                        <p>Pris: {price},00 DKK</p>
-                    </PlakatePrice>
-                    <ButtonDiv>
-                    <button>
-                        Læg i kurv
-                    </button>
-                      <button>
-                        <img src={heart} alt="heart-svg" />
-                      </button>
-                    </ButtonDiv>
-                </figcaption>
-                <PlakateImage>
-                <img src={image} alt={name}/>
-                </PlakateImage>
-            </figure>
-            
-        </PlakateDetailsStyled>
-    );
-}
+  const isFav = isFavorite(poster);
+
+  const { name, description, price, image, width, height, id, genreposterrel } =
+    poster;
+
+  return (
+    <PlakateDetailsStyled>
+      <figure>
+        <figcaption>
+          <h3>{name}</h3>
+          <PlakateDescription
+            dangerouslySetInnerHTML={{ __html: description }}
+          />
+          <p>
+            Størrelse: {width} x {height} cm
+          </p>
+          <p>Varenummer (sku): {id}</p>
+          <PlakatePrice>
+            <p>Pris: {price},00 DKK</p>
+          </PlakatePrice>
+          <ButtonDiv>
+            <button>Læg i kurv</button>
+            <button onClick={() => handleToggleFavorite(poster)}>
+              {isFav ? (
+                <img src={heartsolid} alt="heart-solid" />
+              ) : (
+                <img src={heartregular} alt="heart-regular" />
+              )}
+            </button>
+          </ButtonDiv>
+        </figcaption>
+        <PlakateImage>
+          <img src={image} alt={name} />
+        </PlakateImage>
+      </figure>
+    </PlakateDetailsStyled>
+  );
+};
