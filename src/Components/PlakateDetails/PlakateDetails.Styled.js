@@ -66,6 +66,7 @@ export const ButtonDiv = styled.div`
     }
     img {
       width: 20px;
+      height: 20px;
     }
   }
 

@@ -4,8 +4,7 @@ import { ResetList } from "../../Styles/Mixins";
 
 export const CategoryNavStyled = styled.aside`
   width: 100%;
-  height: 100%;
-  border-right: 1px solid ${(props) => props.theme.color.borderRed};
+
   ul {
     li:first-of-type {
       font-weight: bold;

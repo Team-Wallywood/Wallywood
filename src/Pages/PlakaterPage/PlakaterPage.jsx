@@ -1,6 +1,7 @@
 import { Title } from "../../Components/Title/Title";
 import { Outlet } from "react-router-dom";
 import { CategoryNav } from "../../Components/CategoryNav/CategoryNav";
+import { Favorites } from "../../Components/Favorites/Favorites";
 
 import { PlakateGrid } from "../../Components/PlakateList/PlakateList.Styled";
 
@@ -24,7 +25,10 @@ export const PlakaterPage = () => {
         <Title>Plakater</Title>
       </div>
       <PlakateGrid>
-        <CategoryNav />
+        <div>
+          <CategoryNav />
+          <Favorites />
+        </div>
         <div>
           <Outlet />
         </div>
