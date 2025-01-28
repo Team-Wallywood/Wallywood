@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom";
 import { CategoryNav } from "../../Components/CategoryNav/CategoryNav";
 import { Favorites } from "../../Components/Favorites/Favorites";
 
+import { PosterSection } from "../../Components/PlakateList/PlakateList.Styled";
+
 import { PlakateGrid } from "../../Components/PlakateList/PlakateList.Styled";
 
 import { useNavigate, useLocation } from "react-router-dom";
@@ -20,7 +22,7 @@ export const PlakaterPage = () => {
   }, [location, navigate]);
 
   return (
-    <section>
+    <PosterSection>
       <div>
         <Title>Plakater</Title>
       </div>
@@ -33,6 +35,6 @@ export const PlakaterPage = () => {
           <Outlet />
         </div>
       </PlakateGrid>
-    </section>
+    </PosterSection>
   );
 };

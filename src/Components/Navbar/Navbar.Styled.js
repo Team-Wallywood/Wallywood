@@ -3,9 +3,12 @@ import styled from "styled-components";
 export const NavbarStyled = styled.nav`
   grid-area: navbar;
   display: flex;
-  position: relative;
+  justify-content: center;
+  padding: 1rem;
+  align-items: end;
+  border-bottom: 1px solid ${(props) => props.theme.color.borderRed};
+  margin-right: 2rem;
   ul {
-    position: absolute;
     display: flex;
     justify-content: space-between;
     list-style: none;
@@ -20,5 +23,8 @@ export const NavbarStyled = styled.nav`
         color: #000;
       }
     }
+  }
+  .active {
+    color: ${(props) => props.theme.color.orange};
   }
 `;
