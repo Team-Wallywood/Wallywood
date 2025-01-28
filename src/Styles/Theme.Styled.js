@@ -20,7 +20,7 @@ export const theme = {
         rows: "1fr 1fr 9fr 1fr",
         columns: "5fr 1fr",
         areas: `
-                "header header"
+                "header user"
                 "navbar navbar"
                 "main main"
                 "footer footer"
@@ -32,7 +32,7 @@ export const theme = {
         rows: "1fr 10fr 1fr",
         columns: "repeat(6,1fr)",
         areas: `
-                "header header navbar navbar navbar navbar"
+                "header header navbar navbar navbar user"
                 "main main main main main main"
                 "footer footer footer footer footer footer"
             `,
@@ -41,11 +41,11 @@ export const theme = {
     desktop: {
       primary: {
         rows: "1fr 10fr 1fr",
-        columns: "repeat(6,1fr)",
+        columns: "repeat(8,1fr)",
         areas: `
-                "header header navbar navbar navbar navbar"
-                "main main main main main main"
-                "footer footer footer footer footer footer"
+                "header header navbar navbar navbar navbar navbar user"
+                "main main main main main main main main"
+                "footer footer footer footer footer footer footer footer"
             `,
       },
     },

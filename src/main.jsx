@@ -6,12 +6,16 @@ import { GlobalStyle } from "./Styles/Global.styled.js";
 import { theme } from "./Styles/Theme.Styled.js";
 import { BrowserRouter } from "react-router-dom";
 
+import { AuthProvider } from "./Providers/AuthProvider.jsx";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <BrowserRouter>
     <ThemeProvider theme={theme}>
       <GlobalStyle />
+      <AuthProvider>
         <App />
+        </AuthProvider>
     </ThemeProvider>
     </BrowserRouter>
   </StrictMode>

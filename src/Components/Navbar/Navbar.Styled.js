@@ -7,7 +7,6 @@ export const NavbarStyled = styled.nav`
   padding: 1rem;
   align-items: end;
   border-bottom: 1px solid ${(props) => props.theme.color.borderRed};
-  margin-right: 2rem;
   ul {
     display: flex;
     justify-content: space-between;
