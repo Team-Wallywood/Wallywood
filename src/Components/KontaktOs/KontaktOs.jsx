@@ -56,6 +56,6 @@ export const Kontaktos = () => {
             <button>Send</button>
             <button>anuller</button>
             </div>
-    </KontakOsStyled>
+    </KontaktOsStyled>
     </>
 )};
