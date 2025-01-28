@@ -107,3 +107,7 @@ export const BtnContainer = styled.div`
 export const PosterDetails = styled.div`
   margin: 0.5rem 0;
 `;
+
+export const PosterSection = styled.section`
+  padding: 0 2rem;
+`;
