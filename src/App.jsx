@@ -3,6 +3,7 @@ import { Header } from "./Components/Header/Header";
 import { Navbar } from "./Components/Navbar/Navbar";
 import { Main } from "./Components/Main/Main";
 import { Footer } from "./Components/Footer/Footer";
+import { User } from "./Components/User/User";
 
 // grid for navbar header main footer
 import { Grid } from "./Components/Grid/Grid";
@@ -18,6 +19,7 @@ function App() {
       <Grid>
         <Header />
         <Navbar />
+        <User />
         <Main>
           <FavoritesProvider>
             <AppRoutes />

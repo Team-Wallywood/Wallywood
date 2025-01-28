@@ -1,50 +1,65 @@
 
-import { useState, useEffect } from "react";
-import { LoginStyled } from "./login.styled";
+import { LoginStyled,LoginBtnContainer,LoginLink,LoginContainer } from "./login.styled";
+
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+
+import supabase from "../../Utils/SupabaseClient";
+import { useForm } from "react-hook-form";
 
 export const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [userError, setUserError] = useState("");
 
-  useEffect(() => {
-    if (email.length > 0 && email.length < 2) {
-      setUserError("Email must be at least 2 characters");
-    } else {
-      setUserError("");
-    }
-  }, [email]);
+  const {user,setUser} = useContext(AuthContext);
 
-  useEffect(() => {
-    if (password.length > 0 && password.lenth > 5) {
-        setUserError("password must be at least 5 characters")
-    } else {
-        setUserError("");
+  
+  const {register, handleSubmit, watch,reset, formState: {errors}} = useForm();
+
+  const onSubmit = async ({email, password}) =>{
+    try {
+      const {user,error} = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      console.log("User loggend in:", await supabase.auth.getUser());
+      const myUser = await supabase.auth.getUser();
+      setUser(myUser);
+      console.log("Provider:login ",user);
+      reset();
+    } catch (error) {
+        console.error("An unexpected error occurred.", error);
     }
-  }, [password]);
+  };
+
+  const handleCancel = () => {
+    reset();
+    console.log("Formularen er blevet nulstillet");
+    
+  };
+
 
   return (
     <>
     <LoginStyled>
       <h1>Login</h1>
-      <form>
-      <b>{userError}</b>
-        <label>
-          Email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
-        </label>
-        <b>{userError}</b>
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
+      <form onSubmit={handleSubmit(onSubmit)}>
+      <LoginContainer>
+        <label htmlFor="email">Din email:</label>
+          <input {...register('email',{required: true})} type="email" placeholder="Indtast din email"/>
+          {errors.email && <p>Du skal skrive din email</p>}
+      </LoginContainer>
+        <LoginContainer>
+        <label name="password">Din adgangskode:</label>
+          <input type="password" {...register('password', {required: true})} placeholder="Indtast din adgangskode"/>
+          </LoginContainer>
+          <LoginBtnContainer>
+          <button type="submit">Login</button>
+          <button type="button" onClick={()=> handleCancel()}>Annuller</button>
+          </LoginBtnContainer>
+          <LoginLink>
+            <a href="#">Glemt adgangskode?</a>
+            <a href="#">Opret profil</a>
+          </LoginLink>
       </form>
-            <div>
-            <button>Login</button>
-            <button>anuller</button>
-            </div>
-             <a href="#">glemt adgangskode</a>
-             <a href="#">Opret profil</a>
     </LoginStyled>
     </>
 )};
