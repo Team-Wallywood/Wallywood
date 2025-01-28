@@ -81,9 +81,13 @@ export const MainCardsStyled = styled.div`
 
 export const CardsContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 2rem;
   width: 100%;
+
+  @media screen and (min-width: ${(props) => props.theme.grid.breakpoints.m}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
 `;
 
 export const ImageContainer = styled.div`
