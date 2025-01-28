@@ -1,11 +1,11 @@
 import { MainCards } from "../../Components/mainCards/mainCards";
-import Banner from "../../Assets/Images/curtain.jpg"
 import { Container } from "../../Components/Container/Container";
+import { Banner } from "../../Components/Banner/Banner";
 
 export const HomePage = () => {
   return (
     <Container>
-      <img src={Banner} alt="Banner" width={1400} />
+      <Banner />
       <MainCards />
     </Container>
   );
