@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const OmosContainer = styled.div`
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
 h1 {
     color: #D97852;
 }
-display: flex;
-flex-direction: row;
-white-space: pre-wrap;
-justify-content: center;
 article {
     width: 50%;
     padding: 10px;
