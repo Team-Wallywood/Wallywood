@@ -17,12 +17,14 @@ import { useContext } from "react";
 import { FavoritesContext } from "../../Providers/FavoritesContext";
 
 import { Link } from "react-router-dom";
+import { useBasket } from "../../Utils/useBasket";
 export const PlakateList = () => {
   const { category_id } = useParams();
   const [posters, setPosters] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const { favorites, handleToggleFavorite } = useContext(FavoritesContext);
+  const { basket, handleBasket } = useBasket();
 
   const getPosters = async () => {
     if (supabase) {
@@ -82,7 +84,9 @@ export const PlakateList = () => {
                         <p>kr.{posterItem.poster.price},00</p>
                       </PosterDetails>
                       <BtnContainer>
-                        <button>Læg i kurv</button>
+                        <button onClick={() => handleBasket(posterItem.poster)}>
+                          Læg i kurv
+                        </button>
                         <button
                           onClick={() =>
                             handleToggleFavorite(posterItem.poster)
