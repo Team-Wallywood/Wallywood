@@ -4,7 +4,7 @@ export const NavbarStyled = styled.nav`
   grid-area: navbar;
   display: flex;
   justify-content: center;
-  padding: 1rem;
+  padding: 1rem 0;
   align-items: end;
   border-bottom: 1px solid ${(props) => props.theme.color.borderRed};
   ul {
@@ -28,5 +28,11 @@ export const NavbarStyled = styled.nav`
   }
   .active {
     color: ${(props) => props.theme.color.orange};
+  }
+  @media screen and (min-width: ${(props) => props.theme.grid.breakpoints.s}) {
+    margin: 0 2rem;
+  }
+  @media screen and (min-width: ${(props) => props.theme.grid.breakpoints.m}) {
+    margin: 0rem;
   }
 `;
