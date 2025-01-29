@@ -32,7 +32,7 @@ export const theme = {
         rows: "1fr 10fr 1fr",
         columns: "repeat(6,1fr)",
         areas: `
-                "header header navbar navbar navbar user"
+                "header navbar navbar navbar navbar user"
                 "main main main main main main"
                 "footer footer footer footer footer footer"
             `,

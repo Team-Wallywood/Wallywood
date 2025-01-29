@@ -23,6 +23,7 @@ export const PlakateDetails = () => {
 
   const [poster, setPoster] = useState();
   const [loading, setLoading] = useState(true);
+  const { favorites, handleToggleFavorite } = useContext(FavoritesContext);
 
   const { basket, handleBasket } = useBasket();
 
@@ -55,8 +56,6 @@ export const PlakateDetails = () => {
   if (!poster) {
     return <p>Poster not found</p>;
   }
-
-  const { favorites, handleToggleFavorite } = useContext(FavoritesContext);
 
   const isFavorite = (item) => {
     return favorites.some((fav) => fav.id === item.id);
