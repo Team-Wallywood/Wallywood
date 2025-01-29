@@ -23,6 +23,9 @@ export const NavbarStyled = styled.nav`
       }
     }
   }
+  img {
+    width: 20px;
+  }
   .active {
     color: ${(props) => props.theme.color.orange};
   }

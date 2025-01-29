@@ -15,6 +15,7 @@ import heartsolid from "../../Assets/Button/heart-solid.svg";
 
 import { FavoritesContext } from "../../Providers/FavoritesContext";
 import { useContext } from "react";
+import { useBasket } from "../../Utils/useBasket";
 
 export const PlakateDetails = () => {
   const { plakate_id } = useParams();
@@ -22,6 +23,8 @@ export const PlakateDetails = () => {
 
   const [poster, setPoster] = useState();
   const [loading, setLoading] = useState(true);
+
+  const { basket, handleBasket } = useBasket();
 
   const fetchPoster = async () => {
     if (supabase) {
@@ -80,7 +83,7 @@ export const PlakateDetails = () => {
             <p>Pris: {price},00 DKK</p>
           </PlakatePrice>
           <ButtonDiv>
-            <button>Læg i kurv</button>
+            <button onClick={() => handleBasket(poster)}>Læg i kurv</button>
             <button onClick={() => handleToggleFavorite(poster)}>
               {isFav ? (
                 <img src={heartsolid} alt="heart-solid" />
