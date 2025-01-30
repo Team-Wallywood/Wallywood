@@ -5,7 +5,7 @@ import { ResetList } from "../../Styles/Mixins";
 export const FooterStyled = styled.footer`
   grid-area: footer;
   display: grid;
-  margin: 0 1rem;
+  margin: 0 2rem;
   border-top: 1px solid ${(props) => props.theme.color.borderRed};
 
   grid-template-columns: 1.5fr 0.5fr;
