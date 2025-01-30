@@ -5,29 +5,31 @@ export const Kontaktos = () => {
   const [navn, setNavn] = useState("");
   const [email, setEmail] = useState("");
   const [text, setText] = useState("");
-  const [userError, setUserError] = useState("");
+  const [userErrorName, setUserErrorName] = useState("");
+  const [userErrorEmail, setUserErrorEmail] = useState("")
+  const [userErrorBesked, setUserErrorBesked] = useState("")
 
   useEffect(() => {
     if (navn.length > 0 && navn.length < 2) {
-      setUserError("Email must be at least 2 characters");
+        setUserErrorName("Email must be at least 2 characters");
     } else {
-      setUserError("");
+        setUserErrorName("");
     }
   }, [navn]);
 
   useEffect(() => {
-    if (email.length > 0 && email.lenth > 5) {
-        setUserError("password must be at least 5 characters")
+    if (email.length > 0 && email.length <  5) {
+        setUserErrorEmail("password must be at least 5 characters")
     } else {
-        setUserError("");
+        setUserErrorEmail("");
     }
   }, [email]);
 
   useEffect(() => {
-    if (text.length > 0 && text.lenth > 10) {
-        setUserError("password must be at least 10 characters")
+    if (text.length > 0 && text.length < 10) {
+        setUserErrorBesked("password must be at least 10 characters")
     } else {
-        setUserError("");
+        setUserErrorBesked("");
     }
   }, [text]);
 
@@ -36,17 +38,17 @@ export const Kontaktos = () => {
     <KontaktOsStyled>
       <h1>Kontakt Os</h1>
       <form>
-      <b>{userError}</b>
+      <b>{userErrorName}</b>
         <label>
           Navn:
           <input type="navn" value={navn} onChange={(e) => setNavn(e.target.value)} />
         </label>
-        <b>{userError}</b>
+        <b>{userErrorEmail}</b>
         <label>
           email:
           <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
-        <b>{userError}</b>
+        <b>{userErrorBesked}</b>
         <label>
             Din besked:
             <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
