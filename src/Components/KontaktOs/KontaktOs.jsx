@@ -27,7 +27,7 @@ export const Kontaktos = () => {
 
   useEffect(() => {
     if (text.length > 0 && text.length < 10) {
-        setUserErrorBesked("password must be at least 10 characters")
+        setUserErrorBesked("must be at least 10 characters")
     } else {
         setUserErrorBesked("");
     }
@@ -41,17 +41,17 @@ export const Kontaktos = () => {
       <b>{userErrorName}</b>
         <label>
           Navn:
-          <input type="navn" value={navn} onChange={(e) => setNavn(e.target.value)} />
+          <input type="navn" value={navn} onChange={(e) => setNavn(e.target.value)} placeholder="intast dit navn"/>
         </label>
         <b>{userErrorEmail}</b>
         <label>
           email:
-          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
+          <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="intast din email"/>
         </label>
         <b>{userErrorBesked}</b>
         <label>
             Din besked:
-            <input type="text" value={text} onChange={(e) => setText(e.target.value)} />
+            <textarea type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="intast din besked"/>
         </label>
       </form>
             <div>
