@@ -17,6 +17,9 @@ export const BasketModalStyled = styled.div`
       background-color: ${(props) => props.theme.color.btnSkin};
       border: 1px solid #524641;
       border-radius: 5px;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 `;
@@ -30,6 +33,9 @@ export const ModalHeaderClose = styled.div`
     border: 1px solid #524641;
     padding: 0 0.5rem;
     border-radius: 0.5rem;
+    &:hover {
+      cursor: pointer;
+    }
   }
   h2 {
     color: ${(props) => props.theme.color.orange};
