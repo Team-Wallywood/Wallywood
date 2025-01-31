@@ -8,10 +8,19 @@ export const FooterStyled = styled.footer`
   margin: 0 2rem;
   border-top: 1px solid ${(props) => props.theme.color.borderRed};
 
-  grid-template-columns: 1.5fr 0.5fr;
+  @media screen and (min-width: ${(props) => props.theme.grid.breakpoints.s}) {
+    grid-template-columns: 1.5fr 0.5fr;
+  }
+
   div {
     display: flex;
-    gap: 10rem;
+    gap: 1rem;
+    @media screen and (min-width: ${(props) => props.theme.grid.breakpoints.m}) {
+      gap: 3rem;
+    }
+    @media screen and (min-width: ${(props) => props.theme.grid.breakpoints.l}) {
+      gap: 10rem;
+    }
   }
 
   ul {
@@ -36,7 +45,10 @@ export const FooterStyled = styled.footer`
   }
 
   div:last-of-type {
-    justify-content: flex-end;
+    justify-content: center;
+    @media screen and (min-width: ${(props) => props.theme.grid.breakpoints.s}) {
+      justify-content: flex-end;
+    }
     ul {
       display: flex;
       justify-content: flex-end;
